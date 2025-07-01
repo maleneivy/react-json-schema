@@ -14,10 +14,8 @@ export default function Form() {
 
   const validate = () => {
     const newErrors = {};
-
     formData.fields.forEach((field) => {
       const value = formValues[field.name] || "";
-
       if (field.required && !value.trim()) {
         newErrors[field.name] = `${field.label} er påkrevd`;
       } else if (field.pattern) {
@@ -27,7 +25,6 @@ export default function Form() {
         }
       }
     });
-
     return newErrors;
   };
 
@@ -46,8 +43,8 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>{formData.title}</h1>
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 mt-6 bg-white rounded shadow">
+      <h1 className="text-2xl font-bold mb-4">{formData.title}</h1>
       {formData.fields.map((field) => (
         <FormField
           key={field.name}
@@ -57,7 +54,12 @@ export default function Form() {
           onChange={handleChange}
         />
       ))}
-      <button type="submit">Send inn</button>
+      <button
+        type="submit"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
+      >
+        Send inn
+      </button>
     </form>
   );
 }
