@@ -37,31 +37,31 @@ export default function Form() {
     return newErrors;
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const validationErrors = validate();
-  setErrors(validationErrors);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    setErrors(validationErrors);
 
-  if (Object.keys(validationErrors).length === 0) {
-    console.log("Skjema sendt:", formValues);
-    setIsSubmitted(true);
-    setFormValues({});
-    setErrors({});
-  } else {
-    console.log("Valideringsfeil:", validationErrors);
-    setIsSubmitted(false);
-  }
-};
-
-useEffect(() => {
-  if (isSubmitted) {
-    const timer = setTimeout(() => {
+    if (Object.keys(validationErrors).length === 0) {
+      console.log("Skjema sendt:", formValues);
+      setIsSubmitted(true);
+      setFormValues({});
+      setErrors({});
+    } else {
+      console.log("Valideringsfeil:", validationErrors);
       setIsSubmitted(false);
-    }, 10000);
+    }
+  };
 
-    return () => clearTimeout(timer);
-  }
-}, [isSubmitted]);
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => {
+        setIsSubmitted(false);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted]);
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 mt-6 bg-white rounded shadow">
@@ -81,7 +81,7 @@ useEffect(() => {
       >
         Send inn
       </button>
-            {isSubmitted && (
+      {isSubmitted && (
         <p className="text-green-700 font-medium mb-2 mt-4">Takk! Skjemaet er sendt inn og du vil få svar i løpet av noen virkedager.</p>
       )}
     </form>
