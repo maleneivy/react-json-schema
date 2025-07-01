@@ -1,4 +1,6 @@
 export default function FormField({ field, value, error, onChange }) {
+  const errorId = `${field.name}-error`;
+
   return (
     <div className="mb-4">
       <label htmlFor={field.name} className="block font-medium mb-1">
@@ -11,6 +13,8 @@ export default function FormField({ field, value, error, onChange }) {
           name={field.name}
           value={value}
           onChange={onChange}
+          aria-invalid={!!error}
+          aria-describedby={error ? errorId : undefined}
           className={`w-full border rounded px-3 py-2 ${
             error ? "border-red-500" : "border-gray-300"
           }`}
@@ -29,13 +33,19 @@ export default function FormField({ field, value, error, onChange }) {
           name={field.name}
           value={value}
           onChange={onChange}
+          aria-invalid={!!error}
+          aria-describedby={error ? errorId : undefined}
           className={`w-full border rounded px-3 py-2 ${
             error ? "border-red-500" : "border-gray-300"
           }`}
         />
       )}
 
-      {error && <p className="text-red-600 text-sm mt-1">{error}</p>}
+      {error && (
+        <p id={errorId} className="text-red-600 text-sm mt-1">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
