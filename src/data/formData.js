@@ -27,8 +27,8 @@ export const formData = {
       name: "full_name",
       type: "text",
       required: true,
-      pattern: "^[a-zA-ZæøåÆØÅ\\-\\s]{2,}$", 
-      errorMessage: "Navnet kan bare inneholde bokstaver og må være minst 2 tegn"
+      pattern: "^[a-zA-ZæøåÆØÅ\\-\\s]{2,}(\\s+[a-zA-ZæøåÆØÅ\\-\\s]{2,})+$", 
+      errorMessage: "Vennligst oppgi fullt navn (fornavn og etternavn)"
     },
     {
       label: "E-post",
