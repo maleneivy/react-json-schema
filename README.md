@@ -40,6 +40,7 @@ Komponentene er laget med tanke på gjenbruk og generalisering. All skjemadata e
 - Lokal lagring (f.eks. via `localStorage`) for midlertidig lagring av skjema
 - Implementere enhetstester for validering og feltrendering
 - Klargjøre skjemaet for integrasjon mot API
+- Bruke Typescript for økt type- og utviklingssikkerthet
 
 ## Oppsett og bruk
 
