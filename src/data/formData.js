@@ -4,7 +4,7 @@ export const formData = {
     {
       title: "Hvor bor du?",
       fields: [
-        { label: "Boligtype", name: "housingType", type: "select", options: ["Leilighet", "Enebolig"], required: true },
+        { label: "Boligtype", name: "property_types", type: "select", options: ["Enebolig", "Leilighet", "Rekkehus", "Hytte", "Annet"], required: true },
         { label: "Antall personer", name: "peopleCount", type: "range", required: true, minValue: 1, maxValue: 10, step: 1, startValue: 2 },
         { label: "Strømforbruk i året (kWh)", name: "electricityUsage", type: "number" },
         { label: "Adresse", name: "address", type: "text", required: true },
