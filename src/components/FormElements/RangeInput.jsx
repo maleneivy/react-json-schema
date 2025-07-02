@@ -1,6 +1,6 @@
 export default function RangeInput({ field, value, error, errorId, onChange }) {
   const actualValue = value !== undefined && value !== "" ? value : field.startValue || field.minValue;
-  const personLabel = actualValue === 1 ? "person" : "personer";
+  const personLabel = actualValue === "1" ? "person" : "personer";
 
   return (
     <div>
