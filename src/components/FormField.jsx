@@ -11,7 +11,7 @@ export default function FormField({ field, value, error, onChange }) {
         {field.label}
       </label>
 
-      {field.type === "text" && 
+      {field.type === "text" &&
         <TextInput 
           field={field}
           value={value}
@@ -21,7 +21,7 @@ export default function FormField({ field, value, error, onChange }) {
         />
       }
 
-      {field.type === "email" && 
+      {field.type === "email" &&
         <TextInput 
           field={field}
           value={value}
@@ -31,7 +31,7 @@ export default function FormField({ field, value, error, onChange }) {
         />
       }
 
-      {field.type === "select" && 
+      {field.type === "select" &&
         <SelectInput 
           field={field}
           value={value}
@@ -41,7 +41,7 @@ export default function FormField({ field, value, error, onChange }) {
         />
       }
 
-      {field.type === "range" && 
+      {field.type === "range" &&
         <RangeInput 
           field={field}
           value={value}
