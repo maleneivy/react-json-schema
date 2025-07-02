@@ -1,6 +1,7 @@
 import TextInput from "./FormElements/TextInput";
 import SelectInput from "./FormElements/SelectInput";
 import RangeInput from "./FormElements/RangeInput";
+import NumberInput from "./FormElements/NumberInput";
 
 export default function FormField({ field, value, error, onChange }) {
   const errorId = `${field.name}-error`;
@@ -43,6 +44,16 @@ export default function FormField({ field, value, error, onChange }) {
 
       {field.type === "range" &&
         <RangeInput 
+          field={field}
+          value={value}
+          error={error}
+          errorId={errorId}
+          onChange={onChange}
+        />
+      }
+
+      {field.type === "number" &&
+        <NumberInput 
           field={field}
           value={value}
           error={error}
