@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Skjemaprosjekt – Dynamisk og tilgjengelig React-skjema
 
-## Getting Started
+Dette prosjektet er et brukervennlig skjema laget i React (Next.js), hvor skjemastrukturen er definert i filen `formData.js` som eksporterer skjemadata som et JavaScript-objekt.
+Skjemaet er inndelt i seksjoner, og hver feltkomponent er bygget for å være gjenbrukbar. Det inkluderer dynamisk validering og visuell tilbakemelding ved innsending.
 
-First, run the development server:
+## Funksjonalitet
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Dynamisk generert skjema basert på `formData.js`
+- Gjenbrukbare felttyper: tekst, e-post, select, range og nummer
+- Visuell og tilgjengelig feilhåndtering med ARIA-attributter
+- Strukturert i seksjoner: "Hvor bor du?" og "Hvem er du?"
+- Tilbakemelding ved innsending via `FeedbackToast`-komponent
+
+## Teknologi
+
+- React (Next.js)
+- Tailwind CSS
+- Klientbasert validering
+- Tilgjengelighetsvennlig markup
+
+## Hva jeg har gjort og hvorfor
+
+Jeg ønsket å lage et fleksibelt skjema med fokus på:
+
+- Strukturert og ren kode med gode og gjenbrukbare komponenter
+- Et oppsett som er lett å vedlikeholde og utvide
+- En brukervennlig og tilgjengelig opplevelse
+- Klart skille mellom logikk og visning
+
+Komponentene er laget med tanke på gjenbruk og generalisering. All skjemadata er flyttet ut til en egen fil for å gjøre komponentene frakoblet selve innholdet. Feltene valideres kun ved innsending for å unngå forstyrrende feilmeldinger under utfylling.
+
+## Mulige forbedringer og videre arbeid
+
+- Støtte for initielle verdier for feltene
+    - Akkurat nå må hvert felt fylles ut/endres av brukeren for at de skal lagres i `formValues`
+- Dele skjemaet opp i steg, med "Neste"-knapp og trinnvis validering
+- Integrere kart (f.eks. Google Maps eller Norgeskart) ved adressefeltet
+- Estimere strømforbruk dersom bruker ikke vet nøyaktig kWh, basert på boligtype og antall personer
+- Bedre mobiltilpasning og visuell plassering av tilbakemelding
+- Lokal lagring (f.eks. via `localStorage`) for midlertidig lagring av skjema
+- Implementere enhetstester for validering og feltrendering
+- Klargjøre skjemaet for integrasjon mot API
+
+## Oppsett og bruk
+
+1. Klon repo og installer avhengigheter:
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Start utviklingsserveren
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```sh
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Åpne nettleser på http://localhost:3000/
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Mål
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Målet med prosjektet har vært å trene på komponentstruktur, validerings, tilgjengelighet og brukeropplevelse - samt bygge noe som enkelt kan videreutvikles eller brukes som grunnlag for andre skjemaer. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
