@@ -4,7 +4,10 @@ export default function RangeInput({ field, value, error, errorId, onChange }) {
       type={"range"}
       id={field.name}
       name={field.name}
-      value={value}
+      value={value ?? field.startValue}
+      min={field.minValue}
+      max={field.maxValue}
+      step={field.step}
       onChange={onChange}
       aria-invalid={!!error}
       aria-describedby={error ? errorId : undefined}
