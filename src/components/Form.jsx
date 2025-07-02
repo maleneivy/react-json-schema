@@ -1,12 +1,15 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { formData } from "@/data/formData";
 import FormField from "./FormField";
+import FeedbackToast from "./FeedbackToast";
 
 export default function Form() {
   const [formValues, setFormValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const [toastType, setToastType] = useState("success");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,20 +52,15 @@ export default function Form() {
       setIsSubmitted(true);
       setFormValues({});
       setErrors({});
+      setToastType("success");
+      setToastMessage("Takk! Skjemaet er sendt inn og du vil få svar i løpet av noen virkedager.");
     } else {
       console.log("Valideringsfeil:", validationErrors);
       setIsSubmitted(false);
+      setToastType("error");
+      setToastMessage("Skjemaet inneholder feil. Vennligst rett dem og prøv igjen.");
     }
   };
-
-  useEffect(() => {
-    if (isSubmitted) {
-      const timer = setTimeout(() => {
-        setIsSubmitted(false);
-      }, 10000);
-      return () => clearTimeout(timer);
-    }
-  }, [isSubmitted]);
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-6 mt-6 bg-white rounded shadow">
@@ -90,11 +88,14 @@ export default function Form() {
         Send inn
       </button>
 
-      {isSubmitted && (
-        <p className="text-green-700 font-medium mb-2 mt-4">
-          Takk! Skjemaet er sendt inn og du vil få svar i løpet av noen virkedager.
-        </p>
-      )}
+      {toastMessage && (
+        <FeedbackToast
+        message={toastMessage}
+        type={toastType}
+        onClose={() => setToastMessage("")}
+      />
+)}
+
     </form>
   );
 }
