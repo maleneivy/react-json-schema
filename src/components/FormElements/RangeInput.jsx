@@ -1,4 +1,4 @@
-export default function RangeInput({ field, value, error, onChange }) {
+export default function RangeInput({ field, value, error, errorId, onChange }) {
   return (
     <input
       type={"range"}

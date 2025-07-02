@@ -1,4 +1,4 @@
-export default function SelectInput({ field, value, error, onChange }) {
+export default function SelectInput({ field, value, error, errorId, onChange }) {
   return (
     <select
       id={field.name}

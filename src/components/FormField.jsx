@@ -13,37 +13,41 @@ export default function FormField({ field, value, error, onChange }) {
 
       {field.type === "text" && 
         <TextInput 
-          field={ field }
-          value={ value }
-          error={ error }
-          onChange={ onChange }
+          field={field}
+          value={value}
+          error={error}
+          errorId={errorId}
+          onChange={onChange}
         />
       }
 
       {field.type === "email" && 
         <TextInput 
-          field={ field }
-          value={ value }
-          error={ error }
-          onChange={ onChange }
+          field={field}
+          value={value}
+          error={error}
+          errorId={errorId}
+          onChange={onChange}
         />
       }
 
       {field.type === "select" && 
         <SelectInput 
-          field={ field }
-          value={ value }
-          error={ error }
-          onChange={ onChange }
+          field={field}
+          value={value}
+          error={error}
+          errorId={errorId}
+          onChange={onChange}
         />
       }
 
       {field.type === "range" && 
         <RangeInput 
-          field={ field }
-          value={ value }
-          error={ error }
-          onChange={ onChange }
+          field={field}
+          value={value}
+          error={error}
+          errorId={errorId}
+          onChange={onChange}
         />
       }
 

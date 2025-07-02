@@ -1,4 +1,4 @@
-export default function TextInput({ field, value, error, onChange }) {
+export default function TextInput({ field, value, error, errorId, onChange }) {
   return (
     <input
       type={"text"}
